@@ -23,8 +23,6 @@ openssl req -new -x509 -newkey rsa:2048 \
 
 echo "Secure Boot keys generated successfully in secureboot/keys/"
 
-#!/bin/bash
-
 BASE_DIR="ostree-gpg"
 # Create a secure temp directory for the keyring
 export GNUPGHOME="$(mktemp -d)"
@@ -72,5 +70,7 @@ else
 fi
 
 rm -rf "$GNUPGHOME"
+
+touch .built
 
 echo "Done! Structure created in $BASE_DIR/"
